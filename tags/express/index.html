@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>Tag: express | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/express/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo">
@@ -151,47 +151,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-express" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/07/12/express/" class="archive-article-date">
+  	<time datetime="2017-07-12T07:46:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/express/">&#39;express&#39;</a>
+      <a class="archive-article-title" href="/2017/07/12/express/">&#39;express&#39;</a>
     </h1>
   
 
-        
-        <a href="/2017/07/12/express/" class="archive-article-date">
-  	<time datetime="2017-07-12T07:46:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>是一个框架<br>安装express<br>npm install express</p>
-<p>使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">var express = require(&apos;express&apos;);</div><div class="line">var app = express();</div><div class="line"></div><div class="line">app.get(&apos;index&apos; ,function(req,res)&#123;</div><div class="line">      res.end(&apos;index&apos;);</div><div class="line">&#125;)</div><div class="line">app.get(&apos;*&apos;,function(req,res)&#123;</div><div class="line">res.end(&apos;404&apos;)  //匹配任何get路径</div><div class="line">&#125;)</div><div class="line">app.listen(8080);</div></pre></td></tr></table></figure></p>
-<p>pathname  是端口后面，到问号之间 。问号后面是查询字符串query<br>res.path  res.query<br>req.host  返回请求体中的主机名<br>req.params.id 匹配id   app.get(‘/home/:id’)</p>
-<p>res.send(可以放任何，会转化展现出来) 写数字会变成状态码<br>res.end(只能字符串或者buffer)</p>
-<h3 id="中间件（中间件直接执行，判断是否往下执行）"><a href="#中间件（中间件直接执行，判断是否往下执行）" class="headerlink" title="中间件（中间件直接执行，判断是否往下执行）"></a>中间件（中间件直接执行，判断是否往下执行）</h3><p>next是继续执行下一个函数的意思 next是一个由express提供的函数</p>
-<p>app.use(function(req,res,next){<br>       next();     //调next继续执行下面的路由<br>})</p>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><p>1、指定渲染模板引擎<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.set(&apos;view engine&apos; ,&apos;ejs&apos;);</div></pre></td></tr></table></figure></p>
-<p>2、设置放模板文件的目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.set(&apos;views&apos;,_dirname )</div></pre></td></tr></table></figure></p>
-<p>3、渲染模板，返回给客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">res.render(相对views路径文件 ,&#123;</div><div class="line">  title:&apos;zfpx&apos;</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<h3 id="静态文件服务中间件"><a href="#静态文件服务中间件" class="headerlink" title="静态文件服务中间件"></a>静态文件服务中间件</h3><p>express.static 是Express内置的唯一一个中间件，负责托管Express应用中的静态资源<br>静态资源：css js img<br>Public放静态文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">app.use(express.static(__dirname))</div></pre></td></tr></table></figure></p>
-<p>post请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//body-parser 是处理请求体的中间件</div><div class="line">var bodyParser = require(&apos;body-parser&apos;)</div><div class="line">app.use（bodyParser.urlencoded(&#123;extended:true&#125;)</div><div class="line">//extended为true表示会使用express自带的解析器解析</div><div class="line">app.post(&apos;/&apos;,function(req.res)&#123;</div><div class="line">req.body 就是请求体是对象</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
-<p>获取请求体req.body</p>
-<p>重定向<br>res.redirect(‘  ‘)<br>res.redirect(‘ ‘)  //跳回重新填写</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,111 +194,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-react" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/12/react/">&#39;react&#39;</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/12/react/" class="archive-article-date">
-  	<time datetime="2017-07-12T07:42:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>注重视图层</p>
-<p>自动创建项目<br>npm install -g create-react-app<br>create-react-app my-app</p>
-<h3 id="定义组件的方式"><a href="#定义组件的方式" class="headerlink" title="定义组件的方式"></a>定义组件的方式</h3><p>定义组件<br>一个组件需要有属性状态<br>属性用来存放哪些由父组件传入，自己不能改变的数据<br>状态是组件内部初始化，而且只能内部修改<br>Function 或者 Class</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">函数的方式  不支持状态只支持属性</div><div class="line">function Person(props)&#123;</div><div class="line">return (</div><div class="line">   &lt;div&gt; &lt;/div&gt;</div><div class="line">  )</div><div class="line">&#125;</div><div class="line">ReactDOM.render(&lt;Person name=&apos;zhufenpx&apos;,document.getElementById(&apos;root&apos;))</div></pre></td></tr></table></figure>
-<p>类的的方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export default class Person extens React.Component&#123;</div><div class="line">   constructor(props)&#123;</div><div class="line">   super(props);  //this.props= props</div><div class="line">//这种给装填赋值的方式只能在构造函数中用</div><div class="line">   this.state = &#123;happy:true&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -333,10 +228,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
